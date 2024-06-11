@@ -1,1 +1,1 @@
-# citi-trainning-project
+# citi-training-project
