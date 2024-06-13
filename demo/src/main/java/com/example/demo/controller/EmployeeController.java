@@ -19,7 +19,7 @@ public class EmployeeController {
 
     @GetMapping("/employee/{email}")
     @ResponseBody
-    public List<Employee> findEmployee(@PathVariable String email) {
+    public Employee findEmployee(@PathVariable String email) {
         return repository.findByEmail(email);
     }
 }
