@@ -22,4 +22,10 @@ public class EmployeeController {
     public Employee findEmployee(@PathVariable String email) {
         return repository.findByEmail(email);
     }
+
+    @GetMapping("/employees")
+    @ResponseBody
+    public List<Employee> findAllEmployees() {
+        return repository.findAll();
+    }
 }
