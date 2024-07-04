@@ -1,13 +1,20 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.demo.model.Employee;
 import com.example.demo.repository.EmployeeRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,13 +35,13 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/employees/{id}")
-    public ResponseEntity<Void> borrowBook(@PathVariable long id) {
+    public ResponseEntity<Void> deleteEmployee(@PathVariable long id) {
         repository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/employees")
-    public Employee returnBook(@RequestBody Employee employee) {
+    public Employee createEmployee(@RequestBody Employee employee) {
         employee.setId(null);
         return repository.save(employee);
     }
